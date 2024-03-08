@@ -35,6 +35,5 @@ export class LambdaStack extends Stack {
     );
 
     this.lambdaIntegration = new LambdaIntegration(lambdaFn);
-    props.spacesTable.grantFullAccess(lambdaFn);
   }
 }
