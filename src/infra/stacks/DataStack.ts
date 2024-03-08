@@ -12,7 +12,7 @@ export class DataStack extends Stack {
 
     const suffix = getSuffixFromStack(this);
 
-    this.spacesTable = new Table(this, 'TableStack', {
+    this.spacesTable = new Table(this, 'SpacesTable', {
       partitionKey: {
         name: 'id',
         type: AttributeType.STRING

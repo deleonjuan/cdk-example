@@ -1,6 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
-import { postSpaces } from "./post";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { postSpaces } from "./post";
+import { getSpaces } from "./get";
 
 const ddbClient = new DynamoDBClient({});
 
@@ -10,8 +11,8 @@ async function handler(event: APIGatewayProxyEvent, context: Context){
 
     switch (event.httpMethod) {
         case 'GET':
-            message = 'Hello from GET!'
-            break;
+            const getResponse = await getSpaces(event, ddbClient);
+            return getResponse;
         case 'POST':
             const response = postSpaces(event, ddbClient);
             return response;
