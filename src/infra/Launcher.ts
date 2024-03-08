@@ -8,6 +8,6 @@ const dataStack = new DataStack(app, "DataStack");
 const lambdaStack = new LambdaStack(app, "LambdaStack", {
   spacesTable: dataStack.spacesTable,
 });
-new ApiStack(this, "ApiStack", {
+new ApiStack(app, "ApiStack", {
   lambdaIntegration: lambdaStack.lambdaIntegration,
 });
